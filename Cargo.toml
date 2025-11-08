@@ -1,0 +1,11 @@
+[workspace]
+members = [
+    "fundamentals",
+    "traits",
+    "box_and_pointers",
+    "lifetimes",
+    "error_handling",
+    "concurrency",
+    "async_code",
+    "capstone_project/todo_cli"
+]
