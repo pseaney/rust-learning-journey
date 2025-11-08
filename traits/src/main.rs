@@ -6,13 +6,18 @@ use printable::Printable;
 use article::Article;
 use comment::Comment;
 
-fn main() {
-    let items: Vec<Box<dyn Printable>> = vec![
-        Box::new(Article { title: "Rust Traits".to_string() }),
-        Box::new(Comment { content: "Great post!".to_string() }),
-    ];
-
-    for item in items {
-        item.print();
+fn create_item(kind: &str) -> Box<dyn Printable> {
+    match kind {
+        "article" => Box::new(Article { title: "Rust Traits".into() }),
+        "comment" => Box::new(Comment { content: "Nice post!".into() }),
+        _ => panic!("Unknown kind"),
     }
+}
+
+fn main() {
+    let item1 = create_item("article");
+    let item2 = create_item("comment");
+
+    item1.print();
+    item2.print();
 }
